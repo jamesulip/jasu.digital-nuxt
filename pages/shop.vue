@@ -16,7 +16,7 @@ const {data} = useFetch('/api/listimages')
             <img :src="product.thumbnail" :alt="product.title" class="h-full w-full object-cover object-center sm:h-full sm:w-full" />
           </div>
           <div class="flex  gap-3 px-1.5 overflow-auto scrollbar scrollbar-rounded scrollbar-w-4px scrollbar-radius-2 scrollbar-track-radius-4 scrollbar-thumb-radius-4">
-            <img @focus="product.thumbnail = i.url_500x500" @click="product.thumbnail = i.url_500x500" :src="i.url_75x75" class="h-16 w-auto border" v-for="i in product.listing_images" >
+            <img  @click="product.thumbnail = i.url_500x500" :src="i.url_75x75" class="h-16 w-auto border" v-for="i in product.listing_images" >
           </div>
           <div class="flex flex-1 flex-col space-y-2 p-4">
             <h3 class="text-sm font-medium text-gray-900">
