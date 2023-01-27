@@ -28,9 +28,9 @@ onClickOutside(target, event => setDropdownMenu(false))
         <a target="_blank" href="https://www.instagram.com/jasu.digital" class="i-carbon-logo-instagram">
           <label class="sr-only">Instagram</label>
         </a>
-        <RouterLink to="/contact" class="i-carbon-email">
+        <NuxtLink to="/contact" class="i-carbon-email">
           <label class="sr-only">Email</label>
-        </RouterLink>
+        </NuxtLink>
       </div>
       <div v-if="dropdownMenu" class="bg-white w-full mx-auto md:mx-0 p-8  shadow-lg flex-col justify-between flex md:hidden">
         <div class="logo flex flex-col text-center text-[#25947a]">
@@ -39,7 +39,7 @@ onClickOutside(target, event => setDropdownMenu(false))
           </span>
           <span>DIGITAL ARTS</span>
         </div>
-        <div>
+        <div class="flex">
           <SidebarMenuItem />
         </div>
         <div>
