@@ -11,15 +11,15 @@ import {
 } from 'unocss'
 
 import { presetScrollbar } from 'unocss-preset-scrollbar'
-
+import { presetForms } from '@julr/unocss-preset-forms'
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
     // add external js facebook chat plugin
 
     app: {
-        layoutTransition: { 
-            name: 'layout', 
-            mode: 'out-in' 
+        layoutTransition: {
+            name: 'layout',
+            mode: 'out-in'
         },
         head: {
             script: [
@@ -29,13 +29,13 @@ export default defineNuxtConfig({
 
                 },
                 {
-                    src:'https://www.googletagmanager.com/gtag/js?id=G-MMMHPDHWYR',
+                    src: 'https://www.googletagmanager.com/gtag/js?id=G-MMMHPDHWYR',
                     async: true,
-                     body: true,
+                    body: true,
                 },
                 {
-                    src:'/google-tag.js',
-                     body: true,
+                    src: '/google-tag.js',
+                    body: true,
                 }
             ]
         }
@@ -60,6 +60,7 @@ export default defineNuxtConfig({
         rules: [],
 
         presets: [
+
             presetWind(
 
             ),
@@ -78,6 +79,8 @@ export default defineNuxtConfig({
                     mono: 'DM Mono',
                 },
             }),
+            presetForms(),
+
         ],
 
     },
