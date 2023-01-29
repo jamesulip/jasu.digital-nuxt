@@ -20,10 +20,10 @@ const {data} = useFetch('/api/listimages')
           </div>
           <div class="flex flex-1 flex-col space-y-2 p-4">
             <h3 class="text-sm font-medium text-gray-900">
-              <a :href="product.url">
+              <NuxtLink :to="`/shop/${product.id}`">
                 <span aria-hidden="true"  />
                 <span v-html=" product.title "></span>
-              </a>
+              </NuxtLink>
             </h3>
             <div class="flex flex-1 flex-col justify-end">
               <p class="text-base font-medium text-gray-900">{{product.currency_symbol}}{{ product.price }}</p>
