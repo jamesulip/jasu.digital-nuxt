@@ -1,6 +1,11 @@
 <script lang="ts" setup>
 const route = useRoute();
-const {data,pending}= await useFetch(`/api/product/${route.params.id}`)
+const {data,execute}= await useFetch(`/api/product/${route.params.id}`,{
+  immediate:false
+})
+onMounted(async () => {
+  await execute()
+})
 const img = ref(data?.thumbnail)
 </script>
 <template>
