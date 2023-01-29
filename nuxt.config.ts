@@ -14,8 +14,13 @@ import { presetScrollbar } from 'unocss-preset-scrollbar'
 import { presetForms } from '@julr/unocss-preset-forms'
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+    ssr: true,
     // add external js facebook chat plugin
-
+    nitro: {
+        prerender: {
+          routes: ['/shop/1371898642']
+        }
+      },
     app: {
         layoutTransition: {
             name: 'layout',

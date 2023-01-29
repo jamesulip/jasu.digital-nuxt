@@ -11,7 +11,7 @@ const {data} = useFetch('/api/listimages')
     <div class="mx-auto max-w-2xl lg:max-w-7xl p-10">
       <h2 class="sr-only">Products</h2>
       <div class="grid grid-cols-1 gap-y-4 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-10 lg:grid-cols-3 lg:gap-x-8">
-        <div v-for="product in data" :key="product.id" class="group relative flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white">
+        <div v-for="(product,ind) in data" :key="product.id" class="group relative flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white">
           <div class="aspect-w-3 aspect-h-4 bg-gray-200 group-hover:opacity-75 sm:aspect-none sm:h-96">
             <img :src="product.thumbnail" :alt="product.title" class="h-full w-full object-cover object-center sm:h-full sm:w-full" />
           </div>
@@ -20,10 +20,12 @@ const {data} = useFetch('/api/listimages')
           </div>
           <div class="flex flex-1 flex-col space-y-2 p-4">
             <h3 class="text-sm font-medium text-gray-900">
-              <NuxtLink :to="`/shop/${product.id}`">
+          
+              <a :key="`btn-${ind}`" :href="`/shop/${product.id}`">
+              
                 <span aria-hidden="true"  />
                 <span v-html=" product.title "></span>
-              </NuxtLink>
+              </a>
             </h3>
             <div class="flex flex-1 flex-col justify-end">
               <p class="text-base font-medium text-gray-900">{{product.currency_symbol}}{{ product.price }}</p>

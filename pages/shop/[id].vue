@@ -1,15 +1,20 @@
 <script lang="ts" setup>
 const route = useRoute();
-const {data,execute}= await useFetch(`/api/product/${route.params.id}`,{
-  immediate:false
-})
+const {data,execute}= await useFetch(`/api/product/${route.params.id}`)
 onMounted(async () => {
   await execute()
 })
+useServerSeoMeta({
+  ogTitle: ()=>data.value?.title,
+  ogDescription: ()=>data.value?.description,
+  ogImage: ()=>data.value?.thumbnail,
+  ogUrl: ()=>data.value?.url,
+})
+
 const img = ref(data?.thumbnail)
 </script>
 <template>
-    <div class="bg-white">
+    <div class="bg-white" :key="route.params.id">
       <div class="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
         <div class="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8">
           <!-- Image gallery -->
@@ -62,9 +67,9 @@ const img = ref(data?.thumbnail)
                
               </div>
             </div>
-            <NuxtLink :to="data?.url" class="mt-8 w-full inline-flex items-center justify-center px-5 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#25947a] hover:opacity-75">
+            <a :href="data?.url" class="mt-8 w-full inline-flex items-center justify-center px-5 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#25947a] hover:opacity-75">
             Add to cart
-          </NuxtLink>
+          </a>
           </div>
           <!-- create button to add to cart -->
          
