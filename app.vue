@@ -11,6 +11,6 @@
 .layout-enter-from,
 .layout-leave-to {
   opacity: 0;
-  filter: blur(1rem);
+  filter: blur(1rem);   
 }
 </style>

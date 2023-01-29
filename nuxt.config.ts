@@ -14,14 +14,37 @@ import { presetScrollbar } from 'unocss-preset-scrollbar'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+    // add external js facebook chat plugin
+
     app: {
-        layoutTransition: { name: 'layout', mode: 'out-in' }
+        layoutTransition: { 
+            name: 'layout', 
+            mode: 'out-in' 
+        },
+        head: {
+            script: [
+                {
+                    src: '/facebok-sdk.js',
+                    body: true,
+
+                },
+                {
+                    src:'https://www.googletagmanager.com/gtag/js?id=G-MMMHPDHWYR',
+                    async: true,
+                     body: true,
+                },
+                {
+                    src:'/google-tag.js',
+                     body: true,
+                }
+            ]
+        }
     },
     plugins: [{ src: "@/plugins/aos", ssr: false, mode: "client" }],
     modules: [
         '@vueuse/nuxt',
         '@unocss/nuxt',
-        'unplugin-icons/nuxt'
+        'unplugin-icons/nuxt',
     ],
     css: [
         '@unocss/reset/tailwind.css'

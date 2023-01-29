@@ -4,6 +4,8 @@
     <div class="flex-1 bg-gray-200 overflow-auto">
       <RouterView />
     </div>
+    <div id="fb-customer-chat" class="fb-customerchat"></div>
+
   </main>
 </template>
 <script setup>
