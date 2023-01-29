@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 const route = useRoute();
-const {data,pending}= useFetch(`/api/product/${route.params.id}`)
+const {data,pending}= await useFetch(`/api/product/${route.params.id}`)
 const img = ref(data?.thumbnail)
 </script>
 <template>
