@@ -4,8 +4,6 @@ const {data,pending}= useFetch(`/api/product/${route.params.id}`)
 const img = ref(data?.thumbnail)
 </script>
 <template>
-  <div>
-  
     <div class="bg-white">
       <div class="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
         <div class="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8">
@@ -51,7 +49,7 @@ const img = ref(data?.thumbnail)
 
             <div class="mt-3">
               <h2 class="sr-only">Product information</h2>
-              <p class="text-3xl tracking-tight text-gray-900">$140</p>
+              <p class="text-3xl tracking-tight text-gray-900">{{ data?.currency_symbol }} {{ data?.price }}</p>
             </div>
             <div class="mt-6">
               <h3 class="sr-only">Description</h3>
@@ -59,9 +57,13 @@ const img = ref(data?.thumbnail)
                
               </div>
             </div>
+            <NuxtLink :to="data?.url" class="mt-8 w-full inline-flex items-center justify-center px-5 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#25947a] hover:opacity-75">
+            Add to cart
+          </NuxtLink>
           </div>
+          <!-- create button to add to cart -->
+         
         </div>
       </div>
     </div>
-  </div>
 </template>
