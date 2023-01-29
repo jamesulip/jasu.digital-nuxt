@@ -18,7 +18,17 @@ export default defineNuxtConfig({
     // add external js facebook chat plugin
     nitro: {
         prerender: {
-          routes: ['/shop/1371898642']
+          routes: [
+            '/shop/1160670858',
+            '/shop/1219085152',
+            '/shop/1257442947',
+            '/shop/1359680611',
+            '/shop/1371898642',
+            '/shop/1375601954',
+            '/shop/1376719718',
+            '/shop/1389594533',
+
+            ]
         }
       },
     app: {
