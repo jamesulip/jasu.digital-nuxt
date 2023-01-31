@@ -1,12 +1,19 @@
 <script setup lang="ts">
 const images = Array.from({ length: 41 }, (_, i) => `/gallery/img${i}.jpg`)
+
+useSeoMeta({
+  title: 'Home',
+  description: 'I am Julie Ann Santos Ulip, a highly skilled and accomplished freelance artist. I have been honing my craft from a young age and was discovered by my art teacher at the age of 10. With the support of my family and guidance from my teacher, I went on to pursue a degree in Fine Arts with a major in Advertising Design at Far Eastern University. I graduated Magna Cum Laude and decided to continue my career as a freelancer, exploring various branches of visual arts such as tattooing, sculpting, and animation. My focus has now centered around digital illustrations, particularly portraits. In my free time, I continue to work on my personal paintings and other crafts, always striving to improve my skills.'
+})
+
+
 // check window size responsive
-const responsive = ref(0)
+const responsive = ref(window.innerWidth)
 // get window size without using window
 const section = ref(null)
 useResizeObserver(section, (entries) => {
   const entry = entries[0]
-  const { width } = entry.contentRect
+  const { innerWidth:width } = window
   responsive.value = width
 })
 const getDeviceType = computed(() => {
@@ -41,10 +48,10 @@ const randomImagesChunks = computed(() => {
     <div class="w-full text-center p-4">
       <span class="text-[#25947a] text-3xl font-bold">Gallery</span>
     </div>
-    <div class="flex gap-3 p-4">
+    <div class="flex gap-3 p-4"  >
       <div v-for="col in randomImagesChunks" :key="`row-${col}`" class="flex flex-col gap-3 w-full  ">
         <div  v-for="(row, ind) in col" :key="`col-${row}`" class="flex flex-row gap-3">
-          <img :alt="`img-${ind}`" :src="row" class="w-full">
+          <img :alt="`img-${ind}`" :src="row" class="w-full min-w-32 min-h-32">
         </div>
       </div>
     </div>
