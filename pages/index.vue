@@ -8,12 +8,12 @@ useSeoMeta({
 
 
 // check window size responsive
-const responsive = ref(window.innerWidth)
+const responsive = ref(0)
 // get window size without using window
 const section = ref(null)
 useResizeObserver(section, (entries) => {
   const entry = entries[0]
-  const { innerWidth:width } = window
+  const { width } = entry.contentRect
   responsive.value = width
 })
 const getDeviceType = computed(() => {
