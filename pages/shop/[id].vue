@@ -4,6 +4,13 @@ const {data,execute}= await useFetch(`/api/product/${route.params.id}`)
 onMounted(async () => {
   await execute()
 })
+useHead({
+  title: data.value?.title,
+  meta: [
+    { name: 'description', content: data.value?.description },
+    { name: 'keywords', content: data.value?.title },
+  ],
+})
 useServerSeoMeta({
   ogTitle: ()=>data.value?.title,
   ogDescription: ()=>data.value?.description,
