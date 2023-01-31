@@ -1,5 +1,10 @@
 <script setup lang="ts">
 const {data} = useFetch('/api/listimages')
+
+useSeoMeta({
+  title: 'Shop',
+  description: 'Get a unique and personal touch to your memories with our custom portrait service. From anime to family, historical figures to black and white monochromatic art, we transform your photos into hand-drawn digital illustrations. Choose from a variety of styles, including caricatures, cartoons, and portraits. Ideal for gifts, valentines, and pet portraits. Order now and preserve your special moments forever.'
+})
 </script>
 
 <template>

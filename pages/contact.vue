@@ -4,6 +4,15 @@ const form = ref({
   email: '',
   message: '',
 })
+useHead({
+  title: 'Contact',
+  meta: [
+    {
+      name: 'description',
+      content: 'Contact me for any questions or inquiries, or maybe just to say hi!'
+    }
+  ]
+})
 </script>
 
 <template>

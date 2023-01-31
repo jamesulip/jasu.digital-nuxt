@@ -18,7 +18,9 @@ export default defineNuxtConfig({
     // add external js facebook chat plugin
     nitro: {
         prerender: {
+            crawlLinks: true,
           routes: [
+            '/',
             '/shop/1160670858',
             '/shop/1219085152',
             '/shop/1257442947',
@@ -52,14 +54,25 @@ export default defineNuxtConfig({
                     src: '/google-tag.js',
                     body: true,
                 }
+            ],
+            link: [
+                {
+                    rel: 'stylesheet',
+                    href: 'https://fonts.googleapis.com/css?family=Amatic+SC',
+                    type: 'text/css',
+                }
             ]
         }
     },
+    sitemap: {
+        hostname: 'https://jasu.digital',
+      },
     plugins: [{ src: "@/plugins/aos", ssr: false, mode: "client" }],
     modules: [
         '@vueuse/nuxt',
         '@unocss/nuxt',
         'unplugin-icons/nuxt',
+        'nuxt-simple-sitemap',
     ],
     css: [
         '@unocss/reset/tailwind.css'
@@ -92,6 +105,8 @@ export default defineNuxtConfig({
                     sans: 'DM Sans',
                     serif: 'DM Serif Display',
                     mono: 'DM Mono',
+                    // Amatic SC:ital,wght@0,400;0,700;1,400;1,700
+
                 },
             }),
             presetForms(),
