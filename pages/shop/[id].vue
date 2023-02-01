@@ -7,7 +7,9 @@ onMounted(async () => {
 useHead({
   title: data.value?.title,
   meta: [
-    { name: 'description', content: data.value?.description },
+    { name: 'description', content: `
+      ${data.value?.title}-${data.value?.description}
+    ` },
     { name: 'keywords', content: data.value?.title },
   ],
 })
